@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="pl">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Panel klienta HAUHOUSE &ndash; zarz&aogon;dzaj zam&oacute;wieniami, adresem dostawy i danymi konta." name="description"/>
+  <title>
+   Moje konto | HAUHOUSE
+  </title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;600;700;800&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Główny arkusz HAUHOUSE -->
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body class="account-view">
+  <!-- NAWIGACJA -->
+  <header>
+   <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+     <a class="navbar-brand brand-pink" href="index.html">
+      HAUHOUSE
+      <span class="brand-dot">
+       .
+      </span>
+     </a>
+     <button aria-controls="navbarMain" aria-expanded="false" aria-label="Prze&lstrok;&aogon;cz nawigacj&eogon;" class="navbar-toggler border-0" data-bs-target="#navbarMain" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon">
+      </span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
+       <li class="nav-item">
+        <a class="nav-link" href="index.html#o-nas">
+         O nas
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="index.html#oferta">
+         Oferta
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="sklep.html">
+         Sklep
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="blog.html">
+         Blog
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="kontakt.html">
+         Kontakt
+        </a>
+       </li>
+      </ul>
+      <div class="d-flex align-items-center gap-3 ms-lg-3">
+       <a aria-label="Moje konto" class="text-primary fs-4" href="konto.html">
+        <i class="bi bi-person-circle">
+        </i>
+       </a>
+       <a aria-label="Koszyk zakupowy" class="text-primary fs-4 position-relative" href="koszyk.html" title="Koszyk">
+        <i class="bi bi-bag">
+        </i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+         2
+        </span>
+       </a>
+       <a class="btn btn-accent ms-lg-2 d-none d-lg-inline-block" href="sklep.html">
+        Zobacz Sklep
+       </a>
+      </div>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <!-- GŁÓWNA ZAWARTOŚĆ -->
+  <main class="account-page container">
+   <div class="page-heading">
+    <p class="page-eyebrow">
+     STREFA KLIENTA HAUHOUSE
+    </p>
+    <h1>
+     Moje konto
+    </h1>
+    <p>
+     Zarz&aogon;dzaj swoimi zam&oacute;wieniami i danymi w jednym miejscu.
+    </p>
+   </div>
+   <div class="account-layout">
+    <!-- BOCZNE MENU -->
+    <aside class="account-sidebar">
+     <div class="sidebar-profile">
+      <div class="profile-avatar">
+       <i class="bi bi-person">
+       </i>
+      </div>
+      <div>
+       <h5 id="sidebarName">
+        Anna Kowalska
+       </h5>
+       <small>
+        Klient HAUHOUSE
+       </small>
+      </div>
+     </div>
+     <p class="sidebar-label">
+      MENU KONTA
+     </p>
+     <nav aria-label="Menu konta" class="account-menu">
+      <button class="active" data-section="dashboard" type="button">
+       <i class="bi bi-grid">
+       </i>
+       Pulpit
+      </button>
+      <button data-section="orders" type="button">
+       <i class="bi bi-box-seam">
+       </i>
+       Moje zam&oacute;wienia
+      </button>
+      <button data-section="addresses" type="button">
+       <i class="bi bi-geo-alt">
+       </i>
+       Adresy dostawy
+      </button>
+      <button data-section="settings" type="button">
+       <i class="bi bi-gear">
+       </i>
+       Ustawienia konta
+      </button>
+      <button class="logout-link" id="logoutButton" type="button">
+       <i class="bi bi-box-arrow-right">
+       </i>
+       Wyloguj
+      </button>
+     </nav>
+    </aside>
+    <!-- GŁÓWNY OBSZAR PANELU -->
+    <div class="account-main">
+     <div class="account-alert alert alert-success" id="accountAlert">
+     </div>
+     <!-- =========================================
+                                  PULPIT
+                        ========================================== -->
+     <section class="account-section active" id="dashboard">
+      <div class="welcome-card">
+       <p class="welcome-label">
+        WITAJ W HAUHOUSE
+       </p>
+       <h2>
+        Cze&sacute;&cacute;,
+        <span id="welcomeName">
+         Anno
+        </span>
+        !
+       </h2>
+       <p>
+        Mi&lstrok;o Ci&eogon; widzie&cacute;. Tutaj znajdziesz wszystkie
+                                                informacje dotycz&aogon;ce Twojego konta i zakup&oacute;w.
+       </p>
+      </div>
+      <!-- STATYSTYKI -->
+      <div class="stats-grid">
+       <div class="stat-card">
+        <div class="stat-icon">
+         <i class="bi bi-bag-check">
+         </i>
+        </div>
+        <div>
+         <strong id="ordersCount">
+          3
+         </strong>
+         <span>
+          Wszystkie zam&oacute;wienia
+         </span>
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon">
+         <i class="bi bi-truck">
+         </i>
+        </div>
+        <div>
+         <strong id="activeOrders">
+          2
+         </strong>
+         <span>
+          Aktywne zam&oacute;wienia
+         </span>
+        </div>
+       </div>
+       <div class="stat-card">
+        <div class="stat-icon">
+         <i class="bi bi-heart">
+         </i>
+        </div>
+        <div>
+         <strong>
+          HAU
+         </strong>
+         <span>
+          Tw&oacute;j klub mi&lstrok;o&sacute;nik&oacute;w ps&oacute;w
+         </span>
+        </div>
+       </div>
+      </div>
+      <!-- OSTATNIE ZAMÓWIENIA -->
+      <div class="content-card">
+       <div class="content-card-heading">
+        <h3>
+         Ostatnie zam&oacute;wienia
+        </h3>
+        <button class="text-link border-0 bg-transparent" data-go-section="orders" type="button">
+         Zobacz wszystkie
+         <i class="bi bi-arrow-right">
+         </i>
+        </button>
+       </div>
+       <div class="table-responsive">
+        <table class="table orders-table">
+         <thead>
+          <tr>
+           <th>
+            Numer zam&oacute;wienia
+           </th>
+           <th>
+            Data
+           </th>
+           <th>
+            Kwota
+           </th>
+           <th>
+            Status
+           </th>
+           <th>
+            Szczeg&oacute;&lstrok;y
+           </th>
+          </tr>
+         </thead>
+         <tbody id="recentOrders">
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <!-- ADRES DOMYŚLNY -->
+      <div class="content-card">
+       <div class="content-card-heading">
+        <h3>
+         Domy&sacute;lny adres dostawy
+        </h3>
+        <button class="text-link border-0 bg-transparent" data-go-section="addresses" type="button">
+         Edytuj adres
+         <i class="bi bi-arrow-right">
+         </i>
+        </button>
+       </div>
+       <div class="address-box" id="dashboardAddress">
+       </div>
+      </div>
+     </section>
+     <!-- =========================================
+                                  MOJE ZAMÓWIENIA
+                        ========================================== -->
+     <section class="account-section" id="orders">
+      <div class="section-heading">
+       <h2>
+        Moje zam&oacute;wienia
+       </h2>
+       <p>
+        Sprawd&zacute; histori&eogon; swoich zakup&oacute;w i aktualny status przesy&lstrok;ek.
+       </p>
+      </div>
+      <div class="content-card">
+       <div class="content-card-heading">
+        <h3>
+         Historia zam&oacute;wie&nacute;
+        </h3>
+        <span class="text-muted small" id="allOrdersCount">
+         3 zam&oacute;wienia
+        </span>
+       </div>
+       <div class="table-responsive">
+        <table class="table orders-table">
+         <thead>
+          <tr>
+           <th>
+            Numer zam&oacute;wienia
+           </th>
+           <th>
+            Data
+           </th>
+           <th>
+            Kwota
+           </th>
+           <th>
+            Status
+           </th>
+           <th>
+            Szczeg&oacute;&lstrok;y
+           </th>
+          </tr>
+         </thead>
+         <tbody id="allOrders">
+         </tbody>
+        </table>
+       </div>
+       <div class="order-detail-panel" hidden="" id="orderDetails">
+       </div>
+      </div>
+     </section>
+     <!-- =========================================
+                                  ADRESY DOSTAWY
+                        ========================================== -->
+     <section class="account-section" id="addresses">
+      <div class="section-heading">
+       <h2>
+        Adresy dostawy
+       </h2>
+       <p>
+        Zarz&aogon;dzaj adresem, na kt&oacute;ry wysy&lstrok;amy Twoje zam&oacute;wienia.
+       </p>
+      </div>
+      <div class="content-card">
+       <div class="content-card-heading">
+        <h3>
+         Tw&oacute;j domy&sacute;lny adres
+        </h3>
+        <span class="badge rounded-pill text-bg-light">
+         Domy&sacute;lny
+        </span>
+       </div>
+       <div class="address-box" id="savedAddress">
+       </div>
+       <div class="mt-4">
+        <button class="btn-primary-custom" id="editAddressButton" type="button">
+         <i class="bi bi-pencil">
+         </i>
+         Edytuj adres
+        </button>
+       </div>
+      </div>
+      <!-- FORMULARZ EDYCJI ADRESU -->
+      <div class="content-card" hidden="" id="addressFormCard">
+       <div class="content-card-heading">
+        <h3>
+         Edytuj adres dostawy
+        </h3>
+       </div>
+       <form id="addressForm">
+        <div class="row g-3">
+         <div class="col-md-6">
+          <label class="form-label" for="addressFirstName">
+           Imi&eogon;
+          </label>
+          <input class="form-control" id="addressFirstName" required="" type="text"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="addressLastName">
+           Nazwisko
+          </label>
+          <input class="form-control" id="addressLastName" required="" type="text"/>
+         </div>
+         <div class="col-12">
+          <label class="form-label" for="addressStreet">
+           Ulica i numer domu / mieszkania
+          </label>
+          <input class="form-control" id="addressStreet" required="" type="text"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="addressPostcode">
+           Kod pocztowy
+          </label>
+          <input class="form-control" id="addressPostcode" pattern="[0-9]{2}-[0-9]{3}" placeholder="00-000" required="" type="text"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="addressCity">
+           Miasto
+          </label>
+          <input class="form-control" id="addressCity" required="" type="text"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="addressPhone">
+           Numer telefonu
+          </label>
+          <input class="form-control" id="addressPhone" required="" type="tel"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="addressEmail">
+           Adres e-mail
+          </label>
+          <input class="form-control" id="addressEmail" required="" type="email"/>
+         </div>
+        </div>
+        <div class="address-actions">
+         <button class="btn-primary-custom" type="submit">
+          <i class="bi bi-check-lg">
+          </i>
+          Zapisz adres
+         </button>
+         <button class="btn-outline-custom" id="cancelAddressButton" type="button">
+          Anuluj
+         </button>
+        </div>
+       </form>
+      </div>
+     </section>
+     <!-- =========================================
+                                  USTAWIENIA KONTA
+                        ========================================== -->
+     <section class="account-section" id="settings">
+      <div class="section-heading">
+       <h2>
+        Ustawienia konta
+       </h2>
+       <p>
+        Aktualizuj swoje dane kontaktowe i informacje profilowe.
+       </p>
+      </div>
+      <div class="content-card">
+       <div class="content-card-heading">
+        <h3>
+         Dane osobowe
+        </h3>
+       </div>
+       <form id="settingsForm">
+        <div class="row g-3">
+         <div class="col-md-6">
+          <label class="form-label" for="userFirstName">
+           Imi&eogon;
+          </label>
+          <input class="form-control" id="userFirstName" required="" type="text"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="userLastName">
+           Nazwisko
+          </label>
+          <input class="form-control" id="userLastName" required="" type="text"/>
+         </div>
+         <div class="col-12">
+          <label class="form-label" for="userEmail">
+           Adres e-mail
+          </label>
+          <input class="form-control" id="userEmail" required="" type="email"/>
+         </div>
+         <div class="col-12">
+          <label class="form-label" for="userPhone">
+           Numer telefonu
+          </label>
+          <input class="form-control" id="userPhone" type="tel"/>
+         </div>
+        </div>
+        <div class="mt-4">
+         <button class="btn-primary-custom" type="submit">
+          <i class="bi bi-check-lg">
+          </i>
+          Zapisz zmiany
+         </button>
+        </div>
+       </form>
+      </div>
+      <div class="content-card">
+       <div class="content-card-heading">
+        <h3>
+         Informacje o koncie
+        </h3>
+       </div>
+       <div class="detail-line">
+        <span>
+         Numer klienta
+        </span>
+        <strong>
+         HH-2026-001
+        </strong>
+       </div>
+       <div class="detail-line">
+        <span>
+         Typ konta
+        </span>
+        <strong>
+         Klient HAUHOUSE
+        </strong>
+       </div>
+       <div class="detail-line">
+        <span>
+         Data do&lstrok;&aogon;czenia
+        </span>
+        <strong>
+         2026
+        </strong>
+       </div>
+      </div>
+     </section>
+    </div>
+   </div>
+  </main>
+  <!-- STOPKA -->
+  <footer aria-label="Stopka serwisu" class="corporate-footer">
+   <div class="container">
+    <div class="row g-4 g-lg-5">
+     <!-- KOLUMNA 1: O MARCE -->
+     <div class="col-12 col-md-6 col-lg-3">
+      <a class="footer-brand" href="index.html">
+       HAUHOUSE
+       <span>
+        .
+       </span>
+      </a>
+      <p class="footer-description">
+       Tworzymy wygodne i stylowe akcesoria dla ps&oacute;w. &Lstrok;&aogon;czymy funkcjonalno&sacute;&cacute;, estetyk&eogon; i trosk&eogon; o codzienny komfort pupili. Dzielimy si&eogon; wiedz&aogon;, kt&oacute;ra pomaga opiekunom podejmowa&cacute; &sacute;wiadome decyzje.
+      </p>
+      <div aria-label="Media spo&lstrok;eczno&sacute;ciowe" class="footer-socials">
+       <a aria-label="Instagram &mdash; strona platformy, profil HAUHOUSE nie istnieje" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank" title="Instagram (link demonstracyjny)">
+        <i aria-hidden="true" class="bi bi-instagram">
+        </i>
+       </a>
+       <a aria-label="Facebook &mdash; strona platformy, profil HAUHOUSE nie istnieje" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank" title="Facebook (link demonstracyjny)">
+        <i aria-hidden="true" class="bi bi-facebook">
+        </i>
+       </a>
+       <a aria-label="Pinterest &mdash; strona platformy, profil HAUHOUSE nie istnieje" href="https://www.pinterest.com/" rel="noopener noreferrer" target="_blank" title="Pinterest (link demonstracyjny)">
+        <i aria-hidden="true" class="bi bi-pinterest">
+        </i>
+       </a>
+      </div>
+     </div>
+     <!-- KOLUMNA 2: NAWIGACJA -->
+     <div class="col-6 col-md-6 col-lg-3">
+      <h2 class="footer-heading">
+       Szybka nawigacja
+      </h2>
+      <ul class="footer-links">
+       <li>
+        <a href="index.html">
+         Strona g&lstrok;&oacute;wna
+        </a>
+       </li>
+       <li>
+        <a href="index.html#o-nas">
+         O nas
+        </a>
+       </li>
+       <li>
+        <a href="index.html#oferta">
+         Oferta
+        </a>
+       </li>
+       <li>
+        <a href="blog.html">
+         Blog
+        </a>
+       </li>
+       <li>
+        <a href="kontakt.html">
+         Kontakt
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- KOLUMNA 3: STREFA KLIENTA -->
+     <div class="col-6 col-md-6 col-lg-3">
+      <h2 class="footer-heading">
+       Strefa klienta
+      </h2>
+      <ul class="footer-links">
+       <li>
+        <a href="sklep.html">
+         Sklep
+        </a>
+       </li>
+       <li>
+        <a href="koszyk.html">
+         Koszyk
+        </a>
+       </li>
+       <li>
+        <a href="konto.html">
+         Moje konto
+        </a>
+       </li>
+       <li>
+        <a href="polityka-prywatnosci.html">
+         Polityka prywatno&sacute;ci
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- KOLUMNA 4: NEWSLETTER I KONTAKT -->
+     <div class="col-12 col-md-6 col-lg-3">
+      <h2 class="footer-heading">
+       Newsletter i kontakt
+      </h2>
+      <p class="footer-newsletter-label">
+       Zostaw adres e-mail, aby wypr&oacute;bowa&cacute; formularz newslettera.
+      </p>
+      <form aria-label="Formularz demonstracyjny newslettera" class="footer-newsletter">
+       <label class="visually-hidden" for="footer-newsletter-email">
+        Adres e-mail
+       </label>
+       <div class="input-group">
+        <input autocomplete="email" class="form-control" id="footer-newsletter-email" name="email" placeholder="Tw&oacute;j e-mail" required="" type="email"/>
+        <button aria-label="Wypr&oacute;buj zapis na newsletter" class="btn footer-newsletter-button" type="submit">
+         <i aria-hidden="true" class="bi bi-arrow-right">
+         </i>
+        </button>
+       </div>
+       <p aria-live="polite" class="footer-newsletter-status" role="status">
+       </p>
+      </form>
+      <p class="footer-contact">
+       <i aria-hidden="true" class="bi bi-envelope">
+       </i>
+       <a href="mailto:kontakt@hauhouse.example">
+        kontakt@hauhouse.example
+       </a>
+      </p>
+      <p class="footer-contact">
+       <i aria-hidden="true" class="bi bi-telephone">
+       </i>
+       <a href="tel:+48123456789">
+        +48 123 456 789
+       </a>
+      </p>
+      <p class="footer-small">
+       Dane i formularz s&aogon; demonstracyjne.
+      </p>
+     </div>
+    </div>
+    <!-- DOLNY PASEK PRAWNY -->
+    <div class="footer-bottom">
+     <span>
+      &copy; 2026 HAUHOUSE. Wszelkie prawa zastrze&zdot;one.
+     </span>
+     <span>
+      Autorzy: zesp&oacute;&lstrok; projektu edukacyjnego HAUHOUSE.
+     </span>
+     <a href="polityka-prywatnosci.html">
+      Polityka prywatno&sacute;ci
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- OBSŁUGA PANELU -->
+  <script>
+   "use strict";
+
+/* ==========================================
+   KLUCZE LOCAL STORAGE
+========================================== */
+
+const USER_KEY = "hauhouseUser";
+const ADDRESS_KEY = "hauhouseAddress";
+const ORDERS_KEY = "hauhouseOrders";
+const CART_KEY = "hauhouseCart";
+
+
+/* ==========================================
+   DANE DEMONSTRACYJNE
+========================================== */
+
+const defaultUser = {
+    firstName: "Anna",
+    lastName: "Kowalska",
+    email: "anna@example.com",
+    phone: "500 600 700"
+};
+
+const defaultAddress = {
+    firstName: "Anna",
+    lastName: "Kowalska",
+    street: "ul. Kwiatowa 12/4",
+    postcode: "30-001",
+    city: "Kraków",
+    phone: "500 600 700",
+    email: "anna@example.com"
+};
+
+const defaultOrders = [
+    {
+        id: "HH/2026/001",
+        date: "2026-10-15",
+        amount: 203,
+        status: "W realizacji",
+        items: [
+            {
+                name: "Smycz miejska HAUHOUSE",
+                quantity: 1,
+                price: 89
+            },
+            {
+                name: "Szelki Comfort",
+                quantity: 1,
+                price: 99
+            }
+        ],
+        shipping: 15
+    },
+    {
+        id: "HH/2026/002",
+        date: "2026-10-20",
+        amount: 149,
+        status: "Wysłane",
+        items: [
+            {
+                name: "Obroża Premium",
+                quantity: 1,
+                price: 134
+            }
+        ],
+        shipping: 15
+    },
+    {
+        id: "HH/2026/003",
+        date: "2026-10-25",
+        amount: 229,
+        status: "Zakończone",
+        items: [
+            {
+                name: "Legowisko Comfort",
+                quantity: 1,
+                price: 229
+            }
+        ],
+        shipping: 0
+    }
+];
+
+
+/* ==========================================
+   ODCZYT DANYCH
+========================================== */
+
+function readStorage(key, fallback) {
+
+    try {
+
+        const value = localStorage.getItem(key);
+
+        if (value === null) {
+            return structuredClone(fallback);
+        }
+
+        const parsed = JSON.parse(value);
+
+        return parsed ?? structuredClone(fallback);
+
+    } catch (error) {
+
+        console.error("Błąd odczytu danych:", error);
+
+        return structuredClone(fallback);
+
+    }
+
+}
+
+let user = readStorage(USER_KEY, defaultUser);
+let address = readStorage(ADDRESS_KEY, defaultAddress);
+let orders = readStorage(ORDERS_KEY, defaultOrders);
+
+if (!Array.isArray(orders)) {
+    orders = structuredClone(defaultOrders);
+}
+
+
+/* ==========================================
+   ZAPIS DANYCH
+========================================== */
+
+function saveData(key, value) {
+
+    try {
+
+        localStorage.setItem(key, JSON.stringify(value));
+
+        return true;
+
+    } catch (error) {
+
+        console.error("Nie udało się zapisać danych:", error);
+
+        showAlert("Nie udało się zapisać danych w przeglądarce.", "danger");
+
+        return false;
+
+    }
+
+}
+
+
+/* ==========================================
+   POMOCNICZE
+========================================== */
+
+function escapeHTML(value) {
+
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[char]);
+
+}
+
+function formatPrice(value) {
+
+    return Number(value || 0).toLocaleString("pl-PL", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }) + " zł";
+
+}
+
+function formatDate(value) {
+
+    if (!value) return "-";
+
+    const date = new Date(value + "T00:00:00");
+
+    if (Number.isNaN(date.getTime())) return value;
+
+    return date.toLocaleDateString("pl-PL");
+
+}
+
+function getFullName(person) {
+
+    return `${person.firstName || ""} ${person.lastName || ""}`.trim();
+
+}
+
+
+/* ==========================================
+   POWIADOMIENIA
+========================================== */
+
+function showAlert(message, type = "success") {
+
+    const alertBox = document.getElementById("accountAlert");
+
+    alertBox.textContent = message;
+
+    alertBox.className = `account-alert alert alert-${type} show`;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    window.setTimeout(() => {
+
+        alertBox.classList.remove("show");
+
+    }, 3500);
+
+}
+
+
+/* ==========================================
+   MENU PANELU
+========================================== */
+
+function showSection(sectionId) {
+
+    const section = document.getElementById(sectionId);
+
+    if (!section) return;
+
+    document.querySelectorAll(".account-section").forEach(item => {
+        item.classList.remove("active");
+    });
+
+    document.querySelectorAll(".account-menu button[data-section]").forEach(button => {
+        button.classList.toggle(
+            "active",
+            button.dataset.section === sectionId
+        );
+    });
+
+    section.classList.add("active");
+
+    document.getElementById("accountAlert").classList.remove("show");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+document.querySelectorAll(".account-menu button[data-section]").forEach(button => {
+
+    button.addEventListener("click", () => {
+        showSection(button.dataset.section);
+    });
+
+});
+
+document.querySelectorAll("[data-go-section]").forEach(button => {
+
+    button.addEventListener("click", () => {
+        showSection(button.dataset.goSection);
+    });
+
+});
+
+
+/* ==========================================
+   WYŚWIETLANIE DANYCH UŻYTKOWNIKA
+========================================== */
+
+function renderUser() {
+
+    const fullName = getFullName(user);
+
+    const firstName = user.firstName || "Użytkowniku";
+
+    document.getElementById("sidebarName").textContent =
+        fullName || "Użytkownik";
+
+    document.getElementById("welcomeName").textContent =
+        firstName;
+
+    document.getElementById("userFirstName").value =
+        user.firstName || "";
+
+    document.getElementById("userLastName").value =
+        user.lastName || "";
+
+    document.getElementById("userEmail").value =
+        user.email || "";
+
+    document.getElementById("userPhone").value =
+        user.phone || "";
+
+}
+
+
+/* ==========================================
+   ADRES DOSTAWY
+========================================== */
+
+function addressHTML() {
+
+    return `
+        <p class="address-name">${escapeHTML(getFullName(address))}</p>
+        <p>${escapeHTML(address.street)}</p>
+        <p>${escapeHTML(address.postcode)} ${escapeHTML(address.city)}</p>
+        <p>Telefon: ${escapeHTML(address.phone)}</p>
+        <p>E-mail: ${escapeHTML(address.email)}</p>
+    `;
+
+}
+
+function renderAddress() {
+
+    document.getElementById("savedAddress").innerHTML =
+        addressHTML();
+
+    document.getElementById("dashboardAddress").innerHTML =
+        addressHTML();
+
+}
+
+function fillAddressForm() {
+
+    document.getElementById("addressFirstName").value =
+        address.firstName || "";
+
+    document.getElementById("addressLastName").value =
+        address.lastName || "";
+
+    document.getElementById("addressStreet").value =
+        address.street || "";
+
+    document.getElementById("addressPostcode").value =
+        address.postcode || "";
+
+    document.getElementById("addressCity").value =
+        address.city || "";
+
+    document.getElementById("addressPhone").value =
+        address.phone || "";
+
+    document.getElementById("addressEmail").value =
+        address.email || "";
+
+}
+
+function openAddressEditor() {
+
+    fillAddressForm();
+
+    document.getElementById("addressFormCard").hidden = false;
+
+    document.getElementById("addressFormCard").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+document.getElementById("editAddressButton").addEventListener(
+    "click",
+    openAddressEditor
+);
+
+document.getElementById("cancelAddressButton").addEventListener(
+    "click",
+    () => {
+        document.getElementById("addressFormCard").hidden = true;
+    }
+);
+
+document.getElementById("addressForm").addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const newAddress = {
+
+        firstName: document.getElementById("addressFirstName").value.trim(),
+
+        lastName: document.getElementById("addressLastName").value.trim(),
+
+        street: document.getElementById("addressStreet").value.trim(),
+
+        postcode: document.getElementById("addressPostcode").value.trim(),
+
+        city: document.getElementById("addressCity").value.trim(),
+
+        phone: document.getElementById("addressPhone").value.trim(),
+
+        email: document.getElementById("addressEmail").value.trim()
+
+    };
+
+    if (!saveData(ADDRESS_KEY, newAddress)) return;
+
+    address = newAddress;
+
+    renderAddress();
+
+    document.getElementById("addressFormCard").hidden = true;
+
+    showAlert("Adres dostawy został zapisany.");
+
+});
+
+
+/* ==========================================
+   ZAMÓWIENIA
+========================================== */
+
+function getStatusClass(status) {
+
+    if (status === "W realizacji") return "status-progress";
+
+    if (status === "Wysłane") return "status-sent";
+
+    return "status-completed";
+
+}
+
+function createOrderRow(order) {
+
+    const row = document.createElement("tr");
+
+    const values = [
+        order.id,
+        formatDate(order.date),
+        formatPrice(order.amount)
+    ];
+
+    values.forEach((value, index) => {
+
+        const cell = document.createElement("td");
+
+        cell.textContent = value;
+
+        if (index === 0) {
+            cell.className = "order-number";
+        }
+
+        if (index === 2) {
+            cell.className = "order-amount";
+        }
+
+        row.appendChild(cell);
+
+    });
+
+    const statusCell = document.createElement("td");
+
+    const status = document.createElement("span");
+
+    status.className =
+        "status " + getStatusClass(order.status);
+
+    const statusIcon = document.createElement("i");
+
+    statusIcon.className =
+        order.status === "Wysłane"
+            ? "bi bi-truck"
+            : order.status === "W realizacji"
+                ? "bi bi-clock"
+                : "bi bi-check-circle";
+
+    status.appendChild(statusIcon);
+    status.appendChild(document.createTextNode(order.status));
+
+    statusCell.appendChild(status);
+
+    row.appendChild(statusCell);
+
+    const detailsCell = document.createElement("td");
+
+    const detailsButton = document.createElement("button");
+
+    detailsButton.type = "button";
+    detailsButton.className = "order-details-btn";
+    detailsButton.textContent = "Szczegóły";
+
+    detailsButton.addEventListener("click", () => {
+        showOrderDetails(order.id);
+    });
+
+    detailsCell.appendChild(detailsButton);
+
+    row.appendChild(detailsCell);
+
+    return row;
+
+}
+
+function renderOrders() {
+
+    const recentOrders = document.getElementById("recentOrders");
+    const allOrders = document.getElementById("allOrders");
+
+    recentOrders.replaceChildren();
+    allOrders.replaceChildren();
+
+    orders.forEach((order, index) => {
+
+        const row = createOrderRow(order);
+
+        allOrders.appendChild(row);
+
+        if (index < 3) {
+            recentOrders.appendChild(createOrderRow(order));
+        }
+
+    });
+
+    document.getElementById("ordersCount").textContent =
+        orders.length;
+
+    document.getElementById("activeOrders").textContent =
+        orders.filter(order =>
+            order.status === "W realizacji" ||
+            order.status === "Wysłane"
+        ).length;
+
+    document.getElementById("allOrdersCount").textContent =
+        getOrderCountText(orders.length);
+
+    if (orders.length === 0) {
+
+        const emptyRow = document.createElement("tr");
+        const emptyCell = document.createElement("td");
+
+        emptyCell.colSpan = 5;
+        emptyCell.className = "text-center text-muted py-4";
+        emptyCell.textContent = "Nie masz jeszcze żadnych zamówień.";
+
+        emptyRow.appendChild(emptyCell);
+
+        recentOrders.appendChild(emptyRow.cloneNode(true));
+        allOrders.appendChild(emptyRow);
+
+    }
+
+}
+
+function getOrderCountText(count) {
+
+    if (count === 1) return "1 zamówienie";
+
+    if (count >= 2 && count <= 4) {
+        return count + " zamówienia";
+    }
+
+    return count + " zamówień";
+
+}
+
+function showOrderDetails(orderId) {
+
+    const order = orders.find(item => item.id === orderId);
+
+    if (!order) return;
+
+    const panel = document.getElementById("orderDetails");
+
+    const itemsHTML = (order.items || []).map(item => `
+        <div class="detail-line">
+            <span>
+                ${escapeHTML(item.name)}
+                × ${Number(item.quantity) || 1}
+            </span>
+            <strong>${formatPrice((Number(item.price) || 0) * (Number(item.quantity) || 1))}</strong>
+        </div>
+    `).join("");
+
+    panel.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <h4 class="mb-0">Zamówienie ${escapeHTML(order.id)}</h4>
+            <span class="status ${getStatusClass(order.status)}">
+                ${escapeHTML(order.status)}
+            </span>
+        </div>
+
+        <div class="detail-line">
+            <span>Data zamówienia</span>
+            <strong>${formatDate(order.date)}</strong>
+        </div>
+
+        ${itemsHTML}
+
+        <div class="detail-line">
+            <span>Dostawa</span>
+            <strong>${formatPrice(order.shipping || 0)}</strong>
+        </div>
+
+        <div class="detail-line">
+            <span>Łączna kwota</span>
+            <strong>${formatPrice(order.amount)}</strong>
+        </div>
+    `;
+
+    panel.hidden = false;
+
+    panel.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+
+}
+
+
+/* ==========================================
+   EDYCJA DANYCH KONTA
+========================================== */
+
+document.getElementById("settingsForm").addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const newUser = {
+
+        firstName: document.getElementById("userFirstName").value.trim(),
+
+        lastName: document.getElementById("userLastName").value.trim(),
+
+        email: document.getElementById("userEmail").value.trim(),
+
+        phone: document.getElementById("userPhone").value.trim()
+
+    };
+
+    if (!saveData(USER_KEY, newUser)) return;
+
+    user = newUser;
+
+    renderUser();
+
+    showAlert("Dane konta zostały zaktualizowane.");
+
+});
+
+
+/* ==========================================
+   WYLOGOWANIE DEMONSTRACYJNE
+========================================== */
+
+document.getElementById("logoutButton").addEventListener("click", () => {
+
+    const confirmed = confirm("Czy na pewno chcesz się wylogować?");
+
+    if (!confirmed) return;
+
+    /*
+       To jest wersja demonstracyjna.
+       Nie ma tu prawdziwego systemu logowania,
+       więc nie usuwamy zapisanych zamówień ani adresu.
+    */
+
+    showAlert(
+        "To jest demonstracyjny panel konta. Prawdziwe wylogowanie wymaga systemu autoryzacji.",
+        "info"
+    );
+
+});
+
+
+/* ==========================================
+   LICZNIK KOSZYKA W NAWIGACJI
+========================================== */
+
+function renderCartBadge() {
+
+    try {
+
+        const savedCart = JSON.parse(
+            localStorage.getItem(CART_KEY) || "[]"
+        );
+
+        const quantity = Array.isArray(savedCart)
+            ? savedCart.reduce((sum, item) => {
+                return sum + Math.max(0, Number(item.quantity) || 0);
+            }, 0)
+            : 0;
+
+        document.getElementById("cartBadge").textContent =
+            quantity;
+
+    } catch (error) {
+
+        document.getElementById("cartBadge").textContent = "0";
+
+    }
+
+}
+
+
+/* ==========================================
+   START PANELU
+========================================== */
+
+function initializeAccount() {
+
+    renderUser();
+
+    renderAddress();
+
+    renderOrders();
+
+    renderCartBadge();
+
+}
+
+initializeAccount();
+  </script>
+  <script>
+   // Newsletter demonstracyjny: nie zapisuje ani nie przesyła danych.
+    document.querySelectorAll('.footer-newsletter').forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (!form.reportValidity()) return;
+            const status = form.querySelector('.footer-newsletter-status');
+            status.textContent = 'To formularz demonstracyjny. Adres nie został zapisany ani wysłany.';
+            form.reset();
+        });
+    });
+  </script>
+ </body>
+</html>
